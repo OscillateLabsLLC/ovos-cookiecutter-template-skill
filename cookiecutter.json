@@ -1,0 +1,12 @@
+{
+    "username": "mikejgray",
+    "description": "An OVOS skill that does something",
+    "skill_name": "MySkill",
+    "author_name": "Mike Gray/Oscillate Labs",
+    "author_email": "mike@oscillatelabs.net",
+    "repo_name": "ovos-hello-world-skill",
+    "homepage_url": "https://github.com/oscillatelabsllc/ovos-hello-world-skill",
+    "license": "Apache-2.0",
+    "class_name": "HelloWorldSkill",
+    "skill_id": "ovos-hello-world-skill"
+}

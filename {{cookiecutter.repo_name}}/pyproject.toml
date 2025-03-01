@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{cookiecutter.repo_name}}"
+description = "{{cookiecutter.description}}"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "{{cookiecutter.author_name}}", email = "{{cookiecutter.author_email}}" },
+]
+keywords = ["mycroft", "ovos", "neon", "plugin", "tts"]
+dynamic = ["version"]
+dependencies = ["ovos-plugin-manager>=0.8.3", "ovos-utils>=0.7.0"]
+license = { "text" = "{{cookiecutter.license}}" }
+
+[project.urls]
+Homepage = "{{cookiecutter.homepage_url}}"
+
+[project.entry-points."opm.transformer.dialog"]
+"{{cookiecutter.repo_name}}" = "{{cookiecutter.repo_name.split('-')|join('_')}}:{{cookiecutter.class_name}}"
+
+[tool.setuptools.dynamic]
+version = { attr = "{{cookiecutter.repo_name.split('-')|join('_')}}.version.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["{{cookiecutter.repo_name.split('-')|join('_')}}*"]
+
+[dependency-groups]
+dev = ["pytest>=8.3.4", "pytest-cov>=6.0.0"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov={{cookiecutter.repo_name.split('-')|join('_')}} --cov-report=term-missing"
+testpaths = ["test"]
+
+[tool.ruff]
+line-length = 119
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle
+    "F", # pyflakes
+    "I", # isort
+]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+combine-as-imports = true
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
