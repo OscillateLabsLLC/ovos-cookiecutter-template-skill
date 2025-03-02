@@ -29,14 +29,13 @@
 import json
 from os.path import expanduser, isdir, isfile, join
 from pprint import pprint
-from shutil import copy
 from sys import argv
 
 
 def get_skill_json(skill_dir: str):
     print(f"skill_dir={skill_dir}")
     skill_json = join(skill_dir, "skill.json")
-    skill_spec = get_poetry_skill_data(skill_dir)
+    skill_spec = get_uv_skill_data(skill_dir)
     pprint(skill_spec)
     try:
         with open(skill_json) as f:
@@ -52,7 +51,7 @@ def get_skill_json(skill_dir: str):
         print("No changes to skill.json")
 
 
-def get_poetry_skill_data(skill_dir: str):
+def get_uv_skill_data(skill_dir: str):
     skill_data = {
         "skill_id": "{{cookiecutter.repo_name}}",
         "source": "{{cookiecutter.homepage_url}}",
@@ -79,14 +78,14 @@ def get_poetry_skill_data(skill_dir: str):
         raise FileNotFoundError(f"Not a Directory: {pyproject}")
     with open(pyproject) as f:
         data = load(f)
-    skill_data["package_name"] = data["tool"]["poetry"].get("name", "Unknown")
-    skill_data["name"] = data["tool"]["poetry"].get("name", "Unknown")
-    skill_data["description"] = data["tool"]["poetry"].get("name", "description")
-    skill_data["pip_spec"] = data["tool"]["poetry"].get("name", "Unknown")
-    skill_data["license"] = data["tool"]["poetry"].get("license", "Unknown")
-    skill_data["author"] = data["tool"]["poetry"].get("authors", [""])
-    skill_data["tags"] = data["tool"]["poetry"].get("keywords", ["ovos", "neon", "mycroft"])
-    skill_data["version"] = data["tool"]["poetry"].get("version", [""])
+    skill_data["package_name"] = data["project"].get("name", "Unknown")
+    skill_data["name"] = data["project"].get("name", "Unknown")
+    skill_data["description"] = data["project"].get("name", "description")
+    skill_data["pip_spec"] = data["project"].get("name", "Unknown")
+    skill_data["license"] = data["project"].get("license", "Unknown")
+    skill_data["author"] = data["project"].get("authors", [""])
+    skill_data["tags"] = data["project"].get("keywords", ["ovos", "neon", "mycroft"])
+    skill_data["version"] = data["project"].get("version", [""])
     return skill_data
 
 
