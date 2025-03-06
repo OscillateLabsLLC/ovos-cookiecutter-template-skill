@@ -7,6 +7,6 @@
     "repo_name": "ovos-skill-hello-world",
     "homepage_url": "https://github.com/oscillatelabsllc/ovos-skill-hello-world",
     "license": "Apache-2.0",
-    "class_name": "HelloWorld",
-    "skill_id": "ovos-skill-hello-world.mikejgray",
+    "class_name": "HelloWorldSkill",
+    "skill_id": "ovos-skill-hello-world.mikejgray"
 }
