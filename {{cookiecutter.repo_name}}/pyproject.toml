@@ -18,7 +18,7 @@ license = { "text" = "{{cookiecutter.license}}" }
 [project.urls]
 Homepage = "{{cookiecutter.homepage_url}}"
 
-[project.entry-points."opm.transformer.dialog"]
+[project.entry-points."ovos.plugin.skill"]
 "{{cookiecutter.repo_name}}" = "{{cookiecutter.repo_name.split('-')|join('_')}}:{{cookiecutter.class_name}}"
 
 [tool.setuptools.dynamic]

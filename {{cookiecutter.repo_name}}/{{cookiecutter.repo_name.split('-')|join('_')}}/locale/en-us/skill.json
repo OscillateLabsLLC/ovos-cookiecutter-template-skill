@@ -1,0 +1,16 @@
+{
+    "skill_id": "{{cookiecutter.repo_name}}",
+    "source": "{{cookiecutter.homepage_url}}",
+    "package_name": "{{cookiecutter.repo_name}}",
+    "pip_spec": "",
+    "license": "{{cookiecutter.license}}",
+    "author": "{{cookiecutter.author_name}}",
+    "extra_plugins": {},
+    "icon": "",
+    "images": [],
+    "name": "{{cookiecutter.repo_name}}",
+    "description": "",
+    "examples": [],
+    "tags": [],
+    "version": "1.0.0"
+}
