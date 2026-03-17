@@ -1,5 +1,7 @@
 # ovos-cookiecutter-template-skill
 
+[![Status: Active](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/OscillateLabsLLC/.github/blob/main/SUPPORT_STATUS.md)
+
 ## Generate your project
 
 `cookiecutter gh:oscillatelabsllc/ovos-cookiecutter-template-skill`
