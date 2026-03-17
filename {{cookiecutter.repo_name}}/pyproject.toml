@@ -10,10 +10,18 @@ requires-python = ">=3.9"
 authors = [
     { name = "{{cookiecutter.author_name}}", email = "{{cookiecutter.author_email}}" },
 ]
-keywords = ["mycroft", "ovos", "neon", "plugin", "tts"]
+keywords = ["mycroft", "ovos", "neon", "plugin", "skill"]
 dynamic = ["version"]
 dependencies = ["ovos-plugin-manager>=0.8.3", "ovos-utils>=0.7.0"]
 license = { "text" = "{{cookiecutter.license}}" }
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "mypy>=1.15.0",
+    "ruff>=0.9.9",
+]
 
 [project.urls]
 Homepage = "{{cookiecutter.homepage_url}}"
@@ -26,16 +34,6 @@ version = { attr = "{{cookiecutter.repo_name.split('-')|join('_')}}.version.__ve
 
 [tool.setuptools.packages.find]
 include = ["{{cookiecutter.repo_name.split('-')|join('_')}}*"]
-
-[dependency-groups]
-dev = [
-    "pytest>=8.3.4",
-    "pytest-cov>=6.0.0",
-    "mypy>=1.15.0",
-    "pytest>=8.3.4",
-    "pytest-cov>=6.0.0",
-    "ruff>=0.9.9",
-]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
