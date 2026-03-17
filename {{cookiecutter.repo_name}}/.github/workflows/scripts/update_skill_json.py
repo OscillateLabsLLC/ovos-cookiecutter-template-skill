@@ -80,7 +80,7 @@ def get_uv_skill_data(skill_dir: str):
         data = load(f)
     skill_data["package_name"] = data["project"].get("name", "Unknown")
     skill_data["name"] = data["project"].get("name", "Unknown")
-    skill_data["description"] = data["project"].get("name", "description")
+    skill_data["description"] = data["project"].get("description", "")
     skill_data["pip_spec"] = data["project"].get("name", "Unknown")
     skill_data["license"] = data["project"].get("license", "Unknown")
     skill_data["author"] = data["project"].get("authors", [""])
